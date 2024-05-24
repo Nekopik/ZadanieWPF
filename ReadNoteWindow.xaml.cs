@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,9 +22,11 @@ namespace ZadanieWPF
     /// <summary>
     /// Interaction logic for ReadNoteWindow.xaml
     /// </summary>
+    
+
     public partial class ReadNoteWindow : Window
     {
-        
+        private readonly NoteService _noteService;
         public ReadNoteWindow(NoteEntity note)
         {
             InitializeComponent();
@@ -36,5 +39,23 @@ namespace ZadanieWPF
             this.Close();
         }
 
+        private void Update_Click(object sender, RoutedEventArgs e)
+        {
+            UpdateNoteWindow updateNewNoteWindow = new UpdateNoteWindow();
+            updateNewNoteWindow.Activate();
+            updateNewNoteWindow.Show();
+            updateNewNoteWindow.Closing += UpdateNoteEventHandler;
+        }
+
+        private void UpdateNoteEventHandler(object? sender, CancelEventArgs e)
+        {
+            UpdateNoteWindow eventSender = (UpdateNoteWindow)sender;
+                _noteService.UpdateNote(new Dto.NoteDto(eventSender.UpdateNoteTitle,
+                    eventSender.UpdateNoteCategory,
+                    eventSender.UpdateNoteContent,
+                    eventSender.UpdateCreationDate,
+                    eventSender.UpdateModificationDate));
+            this.Close();
+        }
     }
 }

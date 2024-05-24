@@ -42,7 +42,7 @@ namespace ZadanieWPF.Access
 
         public void UpdateNote(NoteDto noteDto)
         {
-            var updateCommand = "UPDATE Notes SET title = @Title, content = @Content, category = @Category, modificationDate = GETDATE();";
+            var updateCommand = "UPDATE Notes SET title = @Title, content = @Content, category = @Category, modificationDate = @ModificationDate;";
             _sqlConnection.Execute(updateCommand, noteDto);
         }
 
