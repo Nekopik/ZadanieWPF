@@ -27,7 +27,7 @@ namespace ZadanieWPF
         public MainWindow()
         {
             InitializeComponent();
-            string connectionString = "Data Source=DESKTOP-PG60AU0\\SQLEXPRESS;Integrated Security=True";
+            string connectionString = "Data Source=DESKTOP-F731TCH\\SQLEXPRESS;Integrated Security=True";
             AppDbContext appDbContext = new AppDbContext(connectionString);
             ObservableNotes = new ObservableCollection<NoteEntity>();
             Notes_ListView.ItemsSource = ObservableNotes;
@@ -77,15 +77,7 @@ namespace ZadanieWPF
 
         private void ReadNoteEventHandler(object sender, CancelEventArgs e)
         {
-            /*
-            ReadNoteWindow eventSender = (ReadNoteWindow)sender;
-                _noteService.ReadNote(new Dto.NoteDto(eventSender.NewNoteTitle,
-                    eventSender.NewNoteCategory,
-                    eventSender.NewNoteContent,
-                    eventSender.NewCreationDate,
-                    eventSender.NewModificationDate));
-                UpdateNotes();
-            } */
+            UpdateNotes();
         }
     }
 }

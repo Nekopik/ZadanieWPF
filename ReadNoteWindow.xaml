@@ -7,6 +7,17 @@
         mc:Ignorable="d"
         Title="ReadNoteWindow" Height="450" Width="800">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="2*" />
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="1" Margin="10">
+            <TextBlock x:Name="NoteTitleTextBlock" Text="Title:" FontWeight="Bold" Background="Aqua" />
+            <TextBlock x:Name="NoteCategoryTextBlock" Text="Category:" Margin="0,10,0,0"/>
+            <TextBlock x:Name="NoteCreationDateTextBlock" Text="Creation Date:" Margin="0,10,0,0"/>
+            <TextBlock x:Name="NoteModificationDateTextBlock" Text="Modification Date:" Margin="0,10,0,0"/>
+            <TextBlock x:Name="NoteContentTextBlock" Text="Content:" Height="315"/>
+        </StackPanel>
+        <Button x:Name="Cancel" Content="Cancel" Margin="57,383,57,10" Click="Cancel_Click"/>
     </Grid>
 </Window>

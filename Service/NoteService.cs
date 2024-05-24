@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls.Primitives;
 using ZadanieWPF.Access;
 using ZadanieWPF.Dto;
 using ZadanieWPF.Model;
@@ -29,9 +30,10 @@ namespace ZadanieWPF.Service
             _appDbContext.CreateNewNote(noteDto);
         }
 
-        public void ReadNote(NoteDto noteDto)
+        public IEnumerable<NoteEntity> ReadNote(int id)
         {
-            _appDbContext.ReadNote(noteDto);
+            var query = "SELECT * FROM Notes WHERE id = @id";
+            return _appDbContext.GetFromDatabase<NoteEntity>(query);
         }
 
         public void UpdateNote(NoteDto noteDto)

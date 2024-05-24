@@ -11,9 +11,13 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ZadanieWPF.Access;
+using ZadanieWPF.Model;
+using ZadanieWPF.Service;
 
 namespace ZadanieWPF
 {
+    
     /// <summary>
     /// Interaction logic for ReadNoteWindow.xaml
     /// </summary>
@@ -25,5 +29,11 @@ namespace ZadanieWPF
         {
             InitializeComponent();
         }
+
+        private void Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
     }
 }
