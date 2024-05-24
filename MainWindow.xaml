@@ -30,6 +30,7 @@
                     <GridViewColumn Header="Note Title" Width="100" DisplayMemberBinding="{Binding Title}"></GridViewColumn>
                     <GridViewColumn Header="Note Category" Width="100" DisplayMemberBinding="{Binding Category}"></GridViewColumn>
                     <GridViewColumn Header="Note Content" Width="150" DisplayMemberBinding="{Binding Content}"></GridViewColumn>
+                    <GridViewColumn Header="Note Id" Width="50" DisplayMemberBinding="{Binding Id}"></GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>

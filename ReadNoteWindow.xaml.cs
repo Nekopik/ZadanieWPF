@@ -23,11 +23,12 @@ namespace ZadanieWPF
     /// </summary>
     public partial class ReadNoteWindow : Window
     {
-        // var noteFromDatabase = YourDatabase.ReadNote();
-        // Note = new ObservableCollection<NoteDto>(noteFromDatabase);
-        public ReadNoteWindow()
+        
+        public ReadNoteWindow(NoteEntity note)
         {
             InitializeComponent();
+            DataContext = note;
+            
         }
 
         private void Cancel_Click(object sender, RoutedEventArgs e)

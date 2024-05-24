@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Text;
 using System.Windows;
@@ -69,7 +70,9 @@ namespace ZadanieWPF
 
         private void Notes_ListView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            ReadNoteWindow readNoteWindow = new ReadNoteWindow();
+            NoteEntity selectedPerson = (NoteEntity)Notes_ListView.SelectedItem;
+
+            ReadNoteWindow readNoteWindow = new ReadNoteWindow(selectedPerson);
             readNoteWindow.Activate();
             readNoteWindow.Show();
             readNoteWindow.Closing += ReadNoteEventHandler;
